@@ -49,7 +49,7 @@ a = 1
 server = Flask(__name__)
 app = Dash(__name__)
 server = app.server
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__, server = server)
 app.layout = dash.html.Div([
     dcc.Store(id='filtered-data'), # to share filter data
     html.Div([
