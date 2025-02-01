@@ -4,4 +4,4 @@ numpy
 dash
 gunicorn
 flask
-
+dash-bootstrap-components
