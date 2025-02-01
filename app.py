@@ -8,6 +8,7 @@ from dash.dependencies import Input, Output, State
 from flask import Flask
 import dash_bootstrap_components as dbc
 import dash_html_components as html
+from dash import Dash
 # get Bootstrap
 external_stylesheets = [{
     'href':"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
@@ -46,6 +47,8 @@ orders['Ship Date'] = pd.to_datetime(orders['Ship Date'],format = '%d-%m-%Y')
 a = 1
 # create local host
 server = Flask(__name__)
+app = Dash(__name__)
+server = app.server
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = dash.html.Div([
     dcc.Store(id='filtered-data'), # to share filter data
