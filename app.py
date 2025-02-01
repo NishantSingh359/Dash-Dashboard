@@ -252,7 +252,7 @@ def update_graph(year):
     # creating outer 2022 year bar
     fig1.add_trace(go.Bar(y=orde_pio.index, x= None if year in ['All',2020] else orde_pio[orde_pio.columns[0]], orientation='h',
                          marker=dict(color='#561da1', opacity=.6, line=dict(color=None)),
-                         name= f'{(year-1) if isinstance(year,int) else 2020 if year == 'All' else None }',width=0.85))
+                         name= f"{(year-1) if isinstance(year,int) else 2020 if year == 'All' else None }",width=0.85))
     fig1.update_traces(hovertemplate='Sales: %{customdata}<extra></extra>',customdata = None if year in ['All',2020] else orde_pio[orde_pio.columns[0]].apply(f_num))
     # creating inner 2023 year bar
     fig1.add_trace(
