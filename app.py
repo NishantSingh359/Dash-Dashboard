@@ -5,7 +5,7 @@ import plotly.express as px
 import dash
 from dash import dcc, html  # Use updated imports
 from dash.dependencies import Input, Output, State
-
+from flask import Falsk
 # get Bootstrap
 external_stylesheets = [{
     'href':"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
@@ -43,8 +43,9 @@ orders['Order Date'] = pd.to_datetime(orders['Order Date'],format = '%d-%m-%Y')
 orders['Ship Date'] = pd.to_datetime(orders['Ship Date'],format = '%d-%m-%Y')
 a = 1
 # create local host
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-app.layout = html.Div([
+server = Flask(__name__)
+app = dash.Dash(__name__, server = server)
+app.layout = dash.html.Div([
     dcc.Store(id='filtered-data'), # to share filter data
     html.Div([
         html.Div([html.H1('Sales Dashboard',style = {'font-size':'34px','text-align': 'left', 'margin': '.6%','font-weight':'bold','color':'#561da1','font-family': 'sans-serif'})
@@ -313,5 +314,6 @@ def update_graph(year):
 
 
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))  # Render assigns a dynamic port
+    app.run_server(host="0.0.0.0", port=port)
