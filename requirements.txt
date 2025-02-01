@@ -1,4 +1,7 @@
 plotly
-dash
 pandas
 numpy
+dash
+gunicorn
+flask
+
