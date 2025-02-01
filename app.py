@@ -32,10 +32,10 @@ def f_num(num):
 # ALL DATASET___________________
 
 
-orders = pd.read_csv("Sales_Data/Orders.csv")
-product = pd.read_csv("Sales_Data/Products.csv")
-location = pd.read_csv("Sales_Data/Location.csv")
-customer = pd.read_csv("Sales_Data/Customers.csv")
+orders = pd.read_csv("Orders.csv")
+product = pd.read_csv("Products.csv")
+location = pd.read_csv("Location.csv")
+customer = pd.read_csv("Customers.csv")
 # FILTER DATA_______________
 
 # CHANGE DATATYPE--
