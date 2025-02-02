@@ -46,7 +46,7 @@ orders['Ship Date'] = pd.to_datetime(orders['Ship Date'],format = '%d-%m-%Y')
 a = 1
 # create local host
 server = Flask(__name__)
-app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
+app = dash.Dash(__name__, server = server,  requests_pathname_prefix='/')
 app.layout = dash.html.Div([
     dcc.Store(id='filtered-data'), # to share filter data
     html.Div([
